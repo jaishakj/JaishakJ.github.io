@@ -338,14 +338,43 @@ if (isFinePointer && !prefersReducedMotion) {
 }
 
 const flipCard = document.getElementById('profileCard');
+
 if (flipCard) {
+    let devContentLoaded = false;
+
+    const loadDevContent = () => {
+        if (devContentLoaded) return;
+
+        document.getElementById('devQuoteMain').textContent =
+            "Studied Software Engineering just to become the condom between Claude Code and Prod.";
+
+        document.getElementById('devQuoteSub').textContent =
+            "I spend more time arguing with LLMs than with people—and surprisingly, the LLMs usually lose.";
+
+        document.getElementById('devBadges').innerHTML = `
+            <span class="term-badge">git commit -m "works on my machine"</span>
+            <span class="term-badge">sudo make coffee</span>
+            <span class="term-badge">AI &gt; Boilerplate</span>
+            <span class="term-badge">Ship &gt; Perfect<span class="term-cursor"></span></span>
+        `;
+
+        devContentLoaded = true;
+    };
+
     const toggleFlip = () => {
+        loadDevContent();
+
         const flipped = flipCard.classList.toggle('is-flipped');
         flipCard.setAttribute('aria-pressed', String(flipped));
     };
+
     flipCard.addEventListener('click', toggleFlip);
+
     flipCard.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlip(); }
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleFlip();
+        }
     });
 }
 
