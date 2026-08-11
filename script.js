@@ -420,3 +420,21 @@ document.querySelectorAll('.proficiency-grid').forEach(el => {
         btn.setAttribute('aria-pressed', String(playing));
     });
 })();
+
+(function () {
+    const emailParts = ['jaishak.dev', '@', 'gmail.com'];
+    const email = emailParts.join('');
+    const emailLink = document.getElementById('contactEmail');
+    if (emailLink) {
+        emailLink.href = 'mailto:' + email;
+        document.getElementById('emailText').textContent = email;
+    }
+
+    const phoneDigits = ['+91', '9345589347'];
+    const phone = phoneDigits.join(' ');
+    const phoneLink = document.getElementById('contactPhone');
+    if (phoneLink) {
+        phoneLink.href = 'tel:' + phoneDigits.join('');
+        document.getElementById('phoneText').textContent = phone;
+    }
+})();
