@@ -1303,7 +1303,7 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
     font-size: 0.65rem;
     font-weight: 700;
     white-space: nowrap;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.25s ease;
     pointer-events: none;
 }
