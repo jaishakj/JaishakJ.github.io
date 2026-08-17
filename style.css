@@ -590,12 +590,29 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
 .info-card {
     background: var(--surface);
     border: var(--border-w) solid var(--ink);
-    border-radius: 20px;
+    border-radius: 22px;
     padding: 2rem;
     box-shadow: 8px 8px 0 var(--shadow-c);
+    overflow: hidden;
 }
 .card-header { display: flex; align-items: center; gap: 0.6rem; }
-.card-menu-dots { margin-left: auto; color: var(--ink); opacity: 0.4; }
+.card-menu-tab {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: var(--ink);
+    border-radius: 0 24px 0 16px;
+    padding: 10px 14px 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.card-menu-tab svg circle { fill: var(--bg); }
+
+.flip-back .card-menu-tab { background: #FFE031; }
+.flip-back .card-menu-tab svg circle { fill: #14120f; }
 
 /* ===== Card footer: mirrors the "app memes" reference —
    small icon-circle cluster on the left, one pill CTA on the right ===== */
