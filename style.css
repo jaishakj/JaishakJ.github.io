@@ -598,20 +598,32 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
 .card-header { display: flex; align-items: center; gap: 0.6rem; }
 .card-menu-tab {
     position: absolute;
-    top: -2px;
-    right: -2px;
+    top: 0;
+    right: 0;
+    width: 52px;
+    height: 40px;
     background: var(--ink);
-    border-radius: 0 24px 0 16px;
-    padding: 10px 14px 10px 12px;
+    border-radius: 0 20px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 3;
 }
 
+.card-menu-tab::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: -18px;
+    bottom: 0;
+    background: radial-gradient(circle at top left, transparent 17px, var(--ink) 18px);
+}
+
 .card-menu-tab svg circle { fill: var(--bg); }
 
 .flip-back .card-menu-tab { background: #FFE031; }
+.flip-back .card-menu-tab::before { background: radial-gradient(circle at top left, transparent 17px, #FFE031 18px); }
 .flip-back .card-menu-tab svg circle { fill: #14120f; }
 
 /* ===== Card footer: mirrors the "app memes" reference —
@@ -1008,23 +1020,13 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
     grid-template-columns: 220px 1fr;
     border-bottom: 2px solid var(--ink);
     position: relative;
-    transition: background 0.3s ease;
+    transition: border-bottom-color 0.3s ease;
 }
 
 .stack-row:last-child { border-bottom: none; }
 
-.stack-row:not(.stack-head)::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, var(--accent) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-}
-
-.stack-row:not(.stack-head):hover::before { opacity: 0.15; }
-.stack-row:not(.stack-head):hover { background: var(--bg); }
+.stack-row:not(.stack-head):hover { border-bottom-color: var(--accent); }
+.stack-row:not(.stack-head):hover .stack-domain { color: var(--accent); }
 
 .stack-head {
     background: var(--chip-bg);
@@ -1037,6 +1039,8 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
     font-size: 1rem;
     letter-spacing: 0.05em;
     padding: 1.1rem 1.5rem;
+    background: var(--chip-bg);
+    color: var(--chip-text);
 }
 
 .stack-domain {
@@ -1047,6 +1051,7 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
     align-items: center;
     border-right: 2px solid var(--ink);
     background: var(--bg);
+    transition: color 0.3s ease;
 }
 
 .stack-domain {
@@ -1154,33 +1159,24 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
 
 .project-card-large {
     position: relative;
-    overflow: hidden;
-    clip-path: polygon(0 32px, 32px 0, 100% 0, 100% 100%, 0 100%);
     background: var(--surface);
     border: var(--border-w) solid var(--ink);
-    padding: 2.4rem 2rem 2rem;
+    border-radius: 20px;
+    padding: 3.4rem 2rem 2rem;
     box-shadow: 8px 8px 0 var(--shadow-c);
-}
-
-.corner-tab {
-    position: absolute;
-    top: 0; left: 0;
-    width: 32px; height: 32px;
-    background: var(--ink);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 .project-badge {
     position: absolute;
-    top: -15px;
+    top: 1.4rem;
     left: 2rem;
     background: var(--accent);
     color: var(--on-accent);
     border: 2px solid var(--on-accent);
-    padding: 0.5rem 1.5rem;
+    padding: 0.4rem 1.2rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     letter-spacing: 0.05em;
 }
 
