@@ -595,6 +595,27 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
     box-shadow: 8px 8px 0 var(--shadow-c);
     overflow: hidden;
 }
+.future-box {
+    position: relative;
+}
+.box-shape {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+.box-shape path {
+    fill: var(--surface);
+    stroke: var(--ink);
+    stroke-width: 2;
+}
+
+.flip-inner {
+    position: relative;
+    z-index: 1;
+}
 .card-header { display: flex; align-items: center; gap: 0.6rem; }
 .card-menu-tab {
     position: absolute;
