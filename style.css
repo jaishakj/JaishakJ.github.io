@@ -589,7 +589,7 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
 /* Info Card */
 .info-card {
     position: relative;
-    padding: 3.4rem 2rem 2rem;
+    padding: 4.25rem 2rem 2rem;
 }
 .future-box {
     position: absolute;
