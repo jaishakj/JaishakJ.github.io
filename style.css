@@ -588,15 +588,14 @@ body.is-loaded .load-reveal[data-load-delay="4"] { transition-delay: 0.36s; }
 
 /* Info Card */
 .info-card {
-    background: var(--surface);
-    border: var(--border-w) solid var(--ink);
-    border-radius: 22px;
+    position: relative;
     padding: 2rem;
-    box-shadow: 8px 8px 0 var(--shadow-c);
-    overflow: hidden;
 }
 .future-box {
-    position: relative;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    filter: drop-shadow(8px 8px 0 var(--shadow-c));
 }
 .box-shape {
     position: absolute;
